@@ -36,7 +36,7 @@ under the License.
     <field name="submitButton" title="Submit" ><submit button-type="button"/> </field>
 </form>
 
-<form name="FindDemoPersons" type="single" target="FindDemoPerson" default-entity-name="DemoPerson">
+<form name="FindDemoPerson" type="single" target="FindDemoPerson" default-entity-name="DemoPerson">
     <field name="noConditionFind"><hidden value="Y"/></field>
     <field name="personId" title="Person Id"><text-find/></field>
     <field name="firstName" title="First Name"><text-find/></field>
@@ -54,4 +54,22 @@ under the License.
     </field>
     <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button" image-location="/images/icons/magnifier.png"/></field>
 </form>
+    
+    <form name="ListDemoPerson" type="list" list-name="listIt" paginate-target="FindDemoPerson" default-entity-name="DemoPerson" separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="demoPersonCtx"/>
+                <field-map field-name="entityName" value="DemoPerson"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="personId" title="Person Id"><display/></field>
+        <field name="personRoleId" title="Person Role Id"><display-entity entity-name="DemoPersonRole"/></field>
+        <field name="firstName" title="FirstName" sort-field="true"><display/></field>
+        <field name="lastName" title="LastName" sort-field="true"><display/></field>
+        <field name="gender" title="Gender"><display/></field>
+    </form>
 </forms>
