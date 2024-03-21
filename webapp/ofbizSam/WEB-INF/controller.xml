@@ -47,6 +47,13 @@ under the License.
         <event type="service" invoke="createDemoPerson"/>
         <response name="success" type="view" value="main"/>
     </request-map>
+    
+    <request-map uri="createDemoPersonEvent">
+        <security https="true" auth="true"/>
+        <event type="java" path="org.apache.ofbiz.ofbizSam.OfbizSamEvents" invoke="createDemoPersonEvent"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="main"/>
+    </request-map>
 
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://ofbizSam/widget/OfbizSamScreens.xml#main"/>

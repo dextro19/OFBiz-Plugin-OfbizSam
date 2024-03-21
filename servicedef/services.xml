@@ -29,6 +29,19 @@ under the License.
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="false"/>
         <override name="gender" optional="true"/>
-    </service> 
-    
+    </service>
+
+    <service name="createDemoPersonByJavaService" default-entity-name="DemoPerson" engine="java" location="org.apache.ofbiz.ofbizSam.OfbizSamServices" invoke="createDemoPerson" auth="true">
+        <description>Create a Demo Person record using a service in Java</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="gender" optional="true"/>
+    </service>
+
+    <service name="createDemoPersonByGroovyService" default-entity-name="DemoPerson" engine="groovy" location="component://ofbizSam/groovyScripts/OfbizSamServices.groovy" invoke="createDemoPerson" auth="true">
+        <description>Create a Demo Person record using a service in Groovy</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="gender" optional="true"/>
+    </service>
 </services>
