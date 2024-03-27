@@ -55,7 +55,14 @@ under the License.
         <response name="error" type="view" value="main"/>
     </request-map>
 
+    <request-map uri="AddDemoPersonFtl">
+        <security https="true" auth="true"/>
+        <response name="success" type="view" value="AddDemoPersonFtl"/>
+    </request-map>
+
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://ofbizSam/widget/OfbizSamScreens.xml#main"/>
     <view-map name="FindDemoPerson" type="screen" page="component://ofbizSam/widget/OfbizSamScreens.xml#FindDemoPerson"/>
+    <view-map name="AddDemoPersonFtl" type="screen" page="component://ofbizSam/widget/OfbizSamScreens.xml#AddDemoPersonFtl"/>
+
 </site-conf>

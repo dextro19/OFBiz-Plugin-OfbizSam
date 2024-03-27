@@ -72,5 +72,31 @@ under the License.
         </section>
     </screen>
 
+    <screen name="AddDemoPersonFtl">
+        <section>
+            <actions>
+                <set field="titleProperty" value="PageTitleAddDemoPersons"/>
+                <set field="headerItem" value="addDemoPersonFtl"/>
+                <script location="component://ofbizSam/groovyScripts/ListDemoPerson.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <screenlet title="List Demo Person">
+                            <platform-specific>
+                                <html><html-template location="component://ofbizSam/template/crud/ListDemoPerson.ftl"/></html>
+                            </platform-specific>
+                        </screenlet>
+                        <screenlet title="Add Demo Person By Ftl">
+                            <platform-specific>
+                                <html><html-template location="component://ofbizSam/template/crud/AddDemoPerson.ftl"/></html>
+                            </platform-specific>
+                        </screenlet>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
 
 </screens>
